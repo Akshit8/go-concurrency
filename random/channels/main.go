@@ -21,8 +21,10 @@ func main() {
 	go sendValue("first", values)
 	go sendValue("second", values)
 
-	value := <- values
-	fmt.Println(value)
+	for i := 0; i < 2; i++ {
+		value := <- values
+		fmt.Println(value)
+	}
 
 	time.Sleep(1*time.Second)
 }
